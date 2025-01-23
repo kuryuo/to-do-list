@@ -1,0 +1,11 @@
+{
+    "todos": "todos",
+    "addPlaceholder": "Добавить новую задачу",
+    "addButton": "ДОБАВИТЬ",
+    "itemsLeft": "Осталось {{count}} задач",
+    "all": "Все",
+    "active": "Активны",
+    "completed": "Готовы",
+    "clearCompleted": "Удалить готовые",
+    "darkMode": "Тёмная тема"
+  }

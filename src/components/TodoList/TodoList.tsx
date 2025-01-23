@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { TodoItem } from '../TodoItem/TodoItem';
 import { Todo } from '../../types/todo';
 import { List, Typography, Tabs, Tab, Box, Button } from '@mui/material';
+import { useTranslation } from 'react-i18next';  
 
 interface TodoListProps {
   todos: Todo[];
@@ -11,6 +12,7 @@ interface TodoListProps {
 
 export const TodoList: React.FC<TodoListProps> = ({ todos, onToggle, onDelete }) => {
   const [filter, setFilter] = useState<'all' | 'active' | 'completed'>('all');
+  const { t } = useTranslation();  
 
   const incompleteTodos = todos.filter((todo) => !todo.completed);
   const completedTodos = todos.filter((todo) => todo.completed);
@@ -42,8 +44,8 @@ export const TodoList: React.FC<TodoListProps> = ({ todos, onToggle, onDelete })
       </List>
 
       <Box sx={{ display: 'flex', justifyContent: 'space-between', mt: 2 }}>
-        <Typography variant="body2" sx={{ color: '#757575' }}>
-          {incompleteTodos.length} items left
+        <Typography variant="body2" sx={{ color: 'text.secondary' }}>
+          {t('itemsLeft', { count: incompleteTodos.length })} 
         </Typography>
 
         <Tabs
@@ -51,31 +53,38 @@ export const TodoList: React.FC<TodoListProps> = ({ todos, onToggle, onDelete })
           onChange={(_, newValue) => setFilter(newValue)}
           sx={{
             '& .MuiTab-root': {
+              color: 'text.secondary',
               transition: 'all 0.3s ease',
               '&:hover': {
-                color: '#64b5f6', 
+                color: 'primary.main',
+              },
+              '&.Mui-selected': {
+                color: 'primary.main',
               },
             },
           }}
         >
-          <Tab label="All" value="all" />
-          <Tab label="Active" value="active" />
-          <Tab label="Completed" value="completed" />
+          <Tab label={t('all')} value="all" /> 
+          <Tab label={t('active')} value="active" /> 
+          <Tab label={t('completed')} value="completed" />
         </Tabs>
 
         <Button
           variant="outlined"
           onClick={handleClearCompleted}
           sx={{
+            color: 'text.secondary',
+            borderColor: 'divider',
             transition: 'all 0.3s ease',
             '&:hover': {
-              backgroundColor: '#e57373', 
-              color: '#fff',
-              transform: 'scale(1.05)', 
+              backgroundColor: 'error.main',
+              color: 'background.paper',
+              borderColor: 'error.main',
+              transform: 'scale(1.05)',
             },
           }}
         >
-          Clear completed
+          {t('clearCompleted')}
         </Button>
       </Box>
     </Box>

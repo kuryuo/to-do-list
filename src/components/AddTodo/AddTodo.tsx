@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { TextField, Button, Box } from '@mui/material';
+import { useTranslation } from 'react-i18next';  
 
 interface AddTodoProps {
   onAdd: (text: string) => void;
@@ -7,6 +8,7 @@ interface AddTodoProps {
 
 export const AddTodo: React.FC<AddTodoProps> = ({ onAdd }) => {
   const [text, setText] = useState('');
+  const { t } = useTranslation();  
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -30,14 +32,20 @@ export const AddTodo: React.FC<AddTodoProps> = ({ onAdd }) => {
       <TextField
         fullWidth
         variant="outlined"
-        placeholder="Add new task"
+        placeholder={t('addPlaceholder')}
         value={text}
         onChange={(e) => setText(e.target.value)}
         sx={{
           '& .MuiOutlinedInput-root': {
             '&:hover fieldset': {
-              borderColor: '#90caf9', 
+              borderColor: 'primary.main',
             },
+            '& fieldset': {
+              borderColor: 'divider',
+            },
+          },
+          '& .MuiInputBase-input': {
+            color: 'text.primary',
           },
         }}
       />
@@ -48,12 +56,12 @@ export const AddTodo: React.FC<AddTodoProps> = ({ onAdd }) => {
         sx={{
           transition: 'all 0.3s ease',
           '&:hover': {
-            backgroundColor: '#64b5f6', 
-            transform: 'scale(1.05)', 
+            backgroundColor: 'primary.dark',
+            transform: 'scale(1.05)',
           },
         }}
       >
-        ADD
+        {t('addButton')}
       </Button>
     </Box>
   );

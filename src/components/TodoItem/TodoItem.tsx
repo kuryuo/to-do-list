@@ -1,4 +1,4 @@
-import React from 'react';
+ import React from 'react';
 import { Checkbox, Typography, IconButton, ListItem } from '@mui/material';
 import DeleteIcon from '@mui/icons-material/Delete';
 
@@ -14,11 +14,12 @@ export const TodoItem: React.FC<TodoItemProps> = ({ id, text, completed, onToggl
   return (
     <ListItem
       sx={{
-        borderBottom: '1px solid #e0e0e0',
+        borderBottom: '1px solid',
+        borderColor: 'divider',  
         transition: 'all 0.3s ease',
         '&:hover': {
-          backgroundColor: '#f5f5f5', 
-          transform: 'translateX(5px)', 
+          backgroundColor: 'action.hover',  
+          transform: 'translateX(5px)',
         },
       }}
     >
@@ -26,9 +27,9 @@ export const TodoItem: React.FC<TodoItemProps> = ({ id, text, completed, onToggl
         checked={completed}
         onChange={() => onToggle(id)}
         sx={{
-          color: '#90caf9', 
+          color: 'primary.main',  
           '&.Mui-checked': {
-            color: '#64b5f6', 
+            color: 'primary.main',
           },
         }}
       />
@@ -36,7 +37,7 @@ export const TodoItem: React.FC<TodoItemProps> = ({ id, text, completed, onToggl
         sx={{
           flexGrow: 1,
           textDecoration: completed ? 'line-through' : 'none',
-          color: completed ? '#9e9e9e' : 'inherit',
+          color: completed ? 'text.secondary' : 'text.primary',  
           transition: 'all 0.3s ease',
         }}
       >
@@ -47,8 +48,8 @@ export const TodoItem: React.FC<TodoItemProps> = ({ id, text, completed, onToggl
         sx={{
           transition: 'all 0.3s ease',
           '&:hover': {
-            color: '#e57373', 
-            transform: 'scale(1.2)', 
+            color: 'error.main',  
+            transform: 'scale(1.2)',
           },
         }}
       >

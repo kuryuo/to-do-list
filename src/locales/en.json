@@ -1,0 +1,11 @@
+{
+    "todos": "todos",
+    "addPlaceholder": "Add new task",
+    "addButton": "ADD",
+    "itemsLeft": "{{count}} items left",
+    "all": "All",
+    "active": "Active",
+    "completed": "Completed",
+    "clearCompleted": "Clear completed",
+    "darkMode": "Dark Mode"
+  }
