@@ -8,7 +8,7 @@ export const App: React.FC = () => {
 
   return (
     <div style={{ maxWidth: '600px', margin: '0 auto', padding: '20px' }}>
-      <h1>ToDo App</h1>
+      <h1>todos</h1>
       <AddTodo onAdd={addTodo} />
       <TodoList todos={todos} onToggle={toggleTodo} onDelete={deleteTodo} />
     </div>
