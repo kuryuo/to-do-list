@@ -16,7 +16,7 @@ Make sure you have the following installed:
 Clone the repository:
 
 ```
-git clone https://github.com/your-username/todo-app.git
+git clone https://github.com/kuryuo/todo-app.git
 ```
 Navigate to the project directory:
 
